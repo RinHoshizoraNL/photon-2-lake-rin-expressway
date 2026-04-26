@@ -1,0 +1,6 @@
+"DecalModulate"
+{
+	"$basetexture" "rin/expressway/props/patlite_ajs_yb"
+	"$model" "1"
+	"$nocull" "1"
+}
