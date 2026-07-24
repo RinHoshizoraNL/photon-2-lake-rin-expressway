@@ -67,6 +67,12 @@ VEHICLE.Equipment = {
 		Category = "Wheels",
 		Options = {
 			{
+				Option = "Hubcaps",
+				BodyGroups = {
+					{ BodyGroup = "hubcaps", Value = 0 },
+				},
+			},
+			{
 				Option = "Steelies",
 				BodyGroups = {
 					{ BodyGroup = "hubcaps", Value = 1 },
@@ -78,13 +84,7 @@ VEHICLE.Equipment = {
 					{ BodyGroup = "hubcaps", Value = 2 },
 				},
 			},
-            {
-				Option = "Hubcaps",
-				BodyGroups = {
-					{ BodyGroup = "hubcaps", Value = 0 },
-				},
-			},
-		}
+        }
 	},
 	{
 		Category = "Rain Guards",
@@ -140,24 +140,53 @@ VEHICLE.Equipment = {
 				Components = {
 					{
 						Component = "koito_flasher_lrpd",
-						Position = Vector( 16, -77, 51.5 ),
+						Position = Vector( 18.5, -68, 56 ),
 						Angles = Angle( 0, 180, 0 ),
 						Scale = 0.9,
 						SubMaterials = {
 							[3] = "schmal/photon/fedsig_legend/dome_r",
 							[0] = "sentry/props/koitoflasher/plastic_r",
 						},
+						BodyGroups = {
+							["mount"] = 1,
+						},
 						RenderGroup = RENDERGROUP_OPAQUE,
 					},
 					{
 						Component = "koito_flasher_lrpd",
-						Position = Vector( -16, -77, 51.5 ),
+						Position = Vector( -18.5, -68, 56 ),
 						Angles = Angle( 0, 180, 0 ),
 						Scale = 0.9,
-						Phase = 45,
+						Phase = 90,
 						SubMaterials = {
 							[3] = "schmal/photon/fedsig_legend/dome_r"
 						},
+						BodyGroups = {
+							["mount"] = 1,
+						},
+						RenderGroup = RENDERGROUP_OPAQUE,
+					},
+					{
+						Component = "photon_whe_500_lrpd",
+						Position = Vector( 0, -69, 51 ),
+						Angles = Angle( 0, -90, 0 ),
+						Scale = 0.9,
+						RenderGroup = RENDERGROUP_OPAQUE,
+					},
+				},
+				Props = {
+					{
+						Model = "models/schmal/antenna_gps.mdl",
+						Position = Vector( -18.7, -68, 45),
+						Angles = Angle( 0, 0, 0 ),
+						Scale = Vector( 1, 1, 2),
+						RenderGroup = RENDERGROUP_OPAQUE,
+					},
+					{
+						Model = "models/schmal/antenna_gps.mdl",
+						Position = Vector( 18.7, -68, 45),
+						Angles = Angle( 0, 0, 0 ),
+						Scale = Vector( 1, 1, 2),
 						RenderGroup = RENDERGROUP_OPAQUE,
 					},
 				}
@@ -165,10 +194,10 @@ VEHICLE.Equipment = {
 		}
 	},
 	{
-		Category = "Police Equipment",
+		Category = "Equipment",
 		Options = {
 			{
-				Option = "Police Equipment",
+				Option = "Equipment",
 				BodyGroups = {
 					{ BodyGroup = "rearfascia", Value = 0 },
 					{ BodyGroup = "spotlight_l", Value = 1 },

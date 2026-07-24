@@ -213,18 +213,6 @@ VEHICLE.Equipment = {
 						Scale = 1
 					},
 					{
-						Model = "models/rin/industrial/equipment/portable_generator.mdl",
-						Position = Vector(-11, -80, 44 ),
-						Angles = Angle( 0, 190, 0 ),
-						Scale = 1,
-					},
-					{
-						Model = "models/rin/industrial/equipment/welder.mdl",
-						Position = Vector(-15, -41, 44 ),
-						Angles = Angle( 0, 0, 0 ),
-						Scale = 1,
-					},
-					{
 						Model = "models/props_junk/TrafficCone001a.mdl",
 						Position = Vector( 19, -62, 58.8 ),
 						Angles = Angle( 0, 50, 0 ),

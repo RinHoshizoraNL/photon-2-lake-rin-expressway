@@ -85,6 +85,12 @@ VEHICLE.Equipment = {
 		Category = "Wheels",
 		Options = {
 			{
+				Option = "Hubcaps",
+				BodyGroups = {
+					{ BodyGroup = "hubcaps", Value = 0 },
+				},
+			},
+			{
 				Option = "Steelies",
 				BodyGroups = {
 					{ BodyGroup = "hubcaps", Value = 1 },
@@ -94,12 +100,6 @@ VEHICLE.Equipment = {
 				Option = "Steelies missing center caps",
 				BodyGroups = {
 					{ BodyGroup = "hubcaps", Value = 2 },
-				},
-			},
-			{
-				Option = "Hubcaps",
-				BodyGroups = {
-					{ BodyGroup = "hubcaps", Value = 0 },
 				},
 			},
 		}
@@ -166,7 +166,7 @@ VEHICLE.Equipment = {
 				Components = {
 					{
 						Component = "photon_fedsig_xstream_single_lrpd",
-						Position = Vector( -10, -78, 50.5  ),
+						Position = Vector( -21, -69, 55  ),
 						Angles = Angle( 0, 270, 180 ),
 						Scale = 1,
 						BodyGroups = {
@@ -184,7 +184,7 @@ VEHICLE.Equipment = {
 					},
 					{
 						Component = "photon_fedsig_xstream_single_lrpd",
-						Position = Vector( 10, -78, 50.5  ),
+						Position = Vector( 21, -69, 55  ),
 						Angles = Angle( 0, 270, 180 ),
 						Scale = 1,
 						Phase = 180,
@@ -201,6 +201,29 @@ VEHICLE.Equipment = {
 						},
 						RenderGroup = RENDERGROUP_OPAQUE,
 					},
+					{
+						Component = "photon_whe_500_lrpd",
+						Position = Vector( 0, -69, 51 ),
+						Angles = Angle( 0, -90, 0 ),
+						Scale = 0.9,
+						RenderGroup = RENDERGROUP_OPAQUE,
+					},
+				},
+				Props = {
+					{
+						Model = "models/schmal/antenna_gps.mdl",
+						Position = Vector( -18.7, -68, 45),
+						Angles = Angle( 0, 0, 0 ),
+						Scale = Vector( 1, 1, 2),
+						RenderGroup = RENDERGROUP_OPAQUE,
+					},
+					{
+						Model = "models/schmal/antenna_gps.mdl",
+						Position = Vector( 18.7, -68, 45),
+						Angles = Angle( 0, 0, 0 ),
+						Scale = Vector( 1, 1, 2),
+						RenderGroup = RENDERGROUP_OPAQUE,
+					},
 				}
 			}
 		}
@@ -215,7 +238,7 @@ VEHICLE.Equipment = {
 					{ BodyGroup = "spotlight_l", Value = 1 },
 					{ BodyGroup = "spotlight_r", Value = 1 },
 					{ BodyGroup = "windowbars", Value = 0 },
-					{ BodyGroup = "grille", Value = 3 },
+					{ BodyGroup = "grille", Value = 0 },
 					{ BodyGroup = "reartrim", Value = 0 },
 					{ BodyGroup = "doortrim", Value = 5 },
 					{ BodyGroup = "handles", Value = 0 },

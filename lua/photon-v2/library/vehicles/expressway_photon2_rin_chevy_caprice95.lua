@@ -113,24 +113,53 @@ VEHICLE.Equipment = {
 				Components = {
 					{
 						Component = "koito_flasher_lrpd",
-						Position = Vector( 15, -80, 44 ),
+						Position = Vector( 18.5, -68, 48 ),
 						Angles = Angle( 0, 180, 0 ),
 						Scale = 0.9,
 						SubMaterials = {
 							[3] = "schmal/photon/fedsig_legend/dome_r",
 							[0] = "sentry/props/koitoflasher/plastic_r",
 						},
+						BodyGroups = {
+							["mount"] = 1,
+						},
 						RenderGroup = RENDERGROUP_OPAQUE,
 					},
 					{
 						Component = "koito_flasher_lrpd",
-						Position = Vector( -15, -80, 44 ),
+						Position = Vector( -18.5, -68, 48 ),
 						Angles = Angle( 0, 180, 0 ),
 						Scale = 0.9,
 						Phase = 90,
 						SubMaterials = {
 							[3] = "schmal/photon/fedsig_legend/dome_r"
 						},
+						BodyGroups = {
+							["mount"] = 1,
+						},
+						RenderGroup = RENDERGROUP_OPAQUE,
+					},
+					{
+						Component = "photon_whe_500_lrpd",
+						Position = Vector( 0, -69, 43 ),
+						Angles = Angle( 0, -90, 0 ),
+						Scale = 0.9,
+						RenderGroup = RENDERGROUP_OPAQUE,
+					},
+				},
+				Props = {
+					{
+						Model = "models/schmal/antenna_gps.mdl",
+						Position = Vector( -18.7, -68, 37),
+						Angles = Angle( 0, 0, 0 ),
+						Scale = Vector( 1, 1, 2),
+						RenderGroup = RENDERGROUP_OPAQUE,
+					},
+					{
+						Model = "models/schmal/antenna_gps.mdl",
+						Position = Vector( 18.7, -68, 37),
+						Angles = Angle( 0, 0, 0 ),
+						Scale = Vector( 1, 1, 2),
 						RenderGroup = RENDERGROUP_OPAQUE,
 					},
 				}
@@ -138,58 +167,10 @@ VEHICLE.Equipment = {
 		}
 	},
 	{
-		Category = "Wheels",
+		Category = "Equipment",
 		Options = {
 			{
-				Option = "Steelies",
-				Bones = {
-					{ Bone = "fl_wheel", Scale = 0, Position = Vector(0, 0, 0), Angles = Angle(0, 0, 0) },
-					{ Bone = "fr_wheel", Scale = 0, Position = Vector(0, 0, 0), Angles = Angle(0, 0, 0) },
-					{ Bone = "bl_wheel", Scale = 0, Position = Vector(0, 0, 0), Angles = Angle(0, 0, 0) },
-					{ Bone = "br_wheel", Scale = 0, Position = Vector(0, 0, 0), Angles = Angle(0, 0, 0) },
-				},
-				Props = {
-					{
-						Model = "models/rin/95caprice/steelie/rin_steelies.mdl",
-						Position = Vector( 0, 0, 0 ),
-						Angles = Angle( 0, 0, 0 ),
-						Scale = 1,
-						Bones = {
-							["wheel_fl"] = { 
-								Position = Vector( -2.7, 0, 0 ),
-								Angles = Angle( 0, 0, 0 ),
-								Scale = 1,
-								Follow = { Attachment = "wheel_fl" }
-							},
-							["wheel_fr"] = { 
-								Position = Vector( -2.7, 0, 0 ),
-								Angles = Angle( 0, 0, 0 ),
-								Scale = 1,
-								Follow = { Attachment = "wheel_fr" }
-							},
-							["wheel_rl"] = { 
-								Position = Vector( -2.7, 0, 0 ),
-								Angles = Angle( 0, 0, 0 ),
-								Scale = 1,
-								Follow = { Attachment = "wheel_rl" }
-							},
-							["wheel_rr"] = { 
-								Position = Vector( -2.7, 0, 0 ),
-								Angles = Angle( 0, 0, 0 ),
-								Scale = 1,
-								Follow = { Attachment = "wheel_rr" }
-							},
-						},
-					}	
-				},
-			},
-		}
-	},
-	{
-		Category = "Police Equipment",
-		Options = {
-			{
-				Option = "Police Equipment",
+				Option = "Equipment",
 				Props = {
 					{
 						Model = "models/sentry/props/jp/necradio.mdl",
