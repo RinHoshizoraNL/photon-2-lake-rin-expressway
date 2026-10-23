@@ -28,7 +28,7 @@ VEHICLE.Equipment = {
 			    Props = {
 					{
 						Model = "models/anmgenetacautovusharpx/ANMGenetacAutoVuSharpX.mdl",
-						Position = Vector( 29, -6.5, 93.6),
+						Position = Vector( 29, -6.5, 95),
 						Angles = Angle( -1.5, 235, 0 ),
 						Scale = 1,
 						SubMaterials = {
@@ -41,7 +41,7 @@ VEHICLE.Equipment = {
 					},
 					{
 						Model = "models/anmgenetacautovusharpx/ANMGenetacAutoVuSharpX.mdl",
-						Position = Vector( -29, -6.5, 93.6),
+						Position = Vector( -29, -6.5, 95),
 						Angles = Angle( -1.5, -55, 0 ),
 						Scale = 1,
 						SubMaterials = {
@@ -102,74 +102,20 @@ VEHICLE.Equipment = {
 				Option = "Whelen Legacy",
 				Components = {
 				    {
-						Component = "photon_whe_legacy_54_expressway_alt",
-						Position = Vector( 0, -9, 88.5 ),
+						Component = "photon_whe_liberty_ii_suv_expressway",
+						Position = Vector( 0, -9, 90 ),
 						Angles = Angle( 1.5, 90, 0 ),
-						Scale = 0.965,
-						BodyGroups = {
-							["Takedown"] = 1,
-							["Alley"] = 1,
-							["Clamps"] = 2,
-							["Gels"] = 0,
-						},
+						Scale = 1.06,
 					},
 				}
 			},
 		}
 	},
 	{
-		Category = "Grille",
+		Category = "Equipment",
 		Options = {
 			{
-				Option = "Grille",
-				Components = {
-				    {
-						Component = "photon_patlite_lp5_expressway_alt",
-						Position = Vector( 15, 117, 47.2 ),
-						Angles = Angle( -1.5, -8, 0 ),
-						Scale = 1,
-						SubMaterials = {
-							[5] = "schmal/photon/fedsig_legend/dome_r"
-						},
-					},
-					{
-						Component = "photon_patlite_lp5_expressway_alt",
-						Position = Vector( -15, 117, 47.2 ),
-						Angles = Angle( 1.5, 8, 0 ),
-						Scale = 1,
-						Phase = 180,
-						SubMaterials = {
-							[5] = "schmal/photon/fedsig_legend/dome_r"
-						},
-					},
-					{
-						Component = "photon_patlite_lp5_expressway_alt",
-						Position = Vector( 15, 117.2, 41 ),
-						Angles = Angle( -1.5, -8, 0 ),
-						Scale = 1,
-						Phase = 180,
-						SubMaterials = {
-							[5] = "schmal/photon/fedsig_legend/dome_r"
-						},
-					},
-					{
-						Component = "photon_patlite_lp5_expressway_alt",
-						Position = Vector( -15, 117.2, 41 ),
-						Angles = Angle( 1.5, 8, 0 ),
-						Scale = 1,
-						SubMaterials = {
-							[5] = "schmal/photon/fedsig_legend/dome_r"
-						},
-					},
-				}
-			},
-		}
-	},
-	{
-		Category = "Police Equipment",
-		Options = {
-			{
-				Option = "Police Equipment",
+				Option = "Equipment",
 				BodyGroups = {
 					{ BodyGroup = "pushbar", Value = 0 },
 					{ BodyGroup = "windowbars", Value = 0 },
