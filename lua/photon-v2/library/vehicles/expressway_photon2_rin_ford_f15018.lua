@@ -6,6 +6,8 @@ VEHICLE.Vehicle		= "sm18frdf150supercab"
 VEHICLE.Category 	= "Photon 2: Lake Rin Expressway Corp."
 VEHICLE.Author		= "Rin Hoshizora"
 
+local sequence = Photon2.SequenceBuilder.New
+
 VEHICLE.Equipment = {
 	{
 		Category = "Livery",
@@ -25,18 +27,12 @@ VEHICLE.Equipment = {
 				Option = "Whelen Legacy",
 				Components = {
 				    {
-						Component = "photon_whe_legacy_54_expressway",
-						Position = Vector( 0, 6.5, 92 ),
+						Component = "photon_whe_liberty_ii_suv_expressway_works",
+						Position = Vector( 0, -32.5, 107.5 ),
 						Angles = Angle( 2, 90, 0 ),
-						Scale = 0.985,
+						Scale = 1,
 						BodyGroups = {
-							["Takedown"] = 1,
-							["Alley"] = 1,
-							["Clamps"] = 2,
-							["Gels"] = 1,
-						},
-						SubMaterials = {
-							[3] = "rin/expressway/props/legacy"
+							["feet"] = 1,
 						},
 					},
 				}
@@ -44,35 +40,76 @@ VEHICLE.Equipment = {
 		}
 	},
 	{
-		Category = "Grille",
+		Category = "Arrow Board",
 		Options = {
 			{
-				Option = "Grille",
+				Option = "Arrow Board",
 				Components = {
 				    {
-						Component = "photon_patlite_lp5_expressway",
-						Position = Vector( 14, 131, 44.45 ),
-						Angles = Angle( -0.5, -8, 0 ),
+						Component = "photon_lw_expressway_arrowboard",
+						Position = Vector( -0.8, -59, 48),
+						Angles = Angle( 2, 90, 0 ),
 						Scale = 1,
 						SubMaterials = {
-							[5] = "sentry/props/koitoflasher/glass_amber"
-						},
-					},
-					{
-						Component = "photon_patlite_lp5_expressway",
-						Position = Vector( -14, 131, 44.45 ),
-						Angles = Angle( 0.5, 8, 0 ),
-						Scale = 1,
-						Phase = 180,
-						SubMaterials = {
-							[5] = "sentry/props/koitoflasher/glass_amber"
+							[0] = "rin/expressway/props/yellow"
 						},
 					},
 				}
 			},
 		}
 	},
-    {
+	{
+		Category = "Grille Lights",
+		Options = {
+			{
+				Option = "Whelen Ion",
+				Components = {
+					{
+						Name = "@grille_ion",
+						Component = "photon_whe_ion_surface",
+						Position = Vector( 14.5, 130, 44.55 ),
+						Angles = Angle( -0.5, -8, 0 ),
+						Scale = 0.9,
+						States = { "A" },
+						Segments = {
+							LightEXP = {
+								Frames = {
+									[1] = "Light"
+								},
+								Sequences = {
+									["STAGE3"] = sequence():TripleFlash( 1, 0 ):SetTiming( 1/20 ),
+								}
+							},
+						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+								["MODE3"] = {
+									LightEXP = "STAGE3"
+								}
+							},
+						}
+					},
+					{
+						Inherit = "@grille_ion",
+						Position = Vector( -14.5, 130, 44.55 ),
+						Angles = Angle( 0.5, 8, 0 ),
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+								["MODE3"] = {
+									LightEXP = "STAGE3:180"
+								}
+							},
+						}
+					},
+				}
+			},
+		}
+	},
+	{
 		Category = "Spotlight",
 		Options = {
 			{
@@ -119,12 +156,24 @@ VEHICLE.Equipment = {
 				},
 				Props = {
 					{
+						Model = "models/supermighty/props/backrack_lightbarmount.mdl",
+						Position = Vector( -15, -32.4, 104.2 ),
+						Angles = Angle( 2, 90, 0 ),
+						Scale = 1,
+					},
+					{
+						Model = "models/supermighty/props/backrack_lightbarmount.mdl",
+						Position = Vector( 15, -32.4, 104.2 ),
+						Angles = Angle( 2, 90, 0 ),
+						Scale = 1,
+					},
+					{
 						Model = "models/xenosprops/na_plate/na_plate_gov.mdl",
 						Position = Vector( 0, -131.2, 34 ),
 						Angles = Angle( 0, 270, 00 ),
 						Scale = 1,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 					{
@@ -139,7 +188,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 0, 90, 0 ),
 						Scale = 1,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 					{
@@ -147,15 +196,6 @@ VEHICLE.Equipment = {
 						Position = Vector( 0, -8, 92.5),
 						Angles = Angle( 0, 0, -0.5 ),
 						Scale = 1,
-					},
-					{
-						Model = "models/lonewolfie/arrow_mount.mdl",
-						Position = Vector( -0.8, -59, 48),
-						Angles = Angle( 2, 90, 0 ),
-						Scale = 1,
-						SubMaterials = {
-							[0] = "rin/expressway/props/yellow"
-						},
 					},
 					{
 						Model = "models/anemolis/props/anemolis_f150toolbox.mdl",

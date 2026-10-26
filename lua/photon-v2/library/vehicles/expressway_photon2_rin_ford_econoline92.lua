@@ -49,6 +49,12 @@ VEHICLE.Equipment = {
                             [13] = "rin/expressway/props/yellow",
                             [14] = "rin/expressway/props/yellow",
 						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+							},
+						}
                     },
                     {
                         Component = "patlite_ajs12",
@@ -70,6 +76,12 @@ VEHICLE.Equipment = {
                             [13] = "rin/expressway/props/yellow",
                             [14] = "rin/expressway/props/yellow",
 						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+							},
+						}
                     },
 				}
 			},
@@ -104,7 +116,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( -5, 271, 00 ),
 						Scale = 1.05,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 					{
@@ -119,7 +131,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 0, 90, 0 ),
 						Scale = 0.97,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 				}

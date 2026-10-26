@@ -21,6 +21,22 @@ VEHICLE.Equipment = {
 		}
 	},
 	{
+		Category = "Spotlight",
+		Options = {
+			{
+				Option = "Pillar Spotlight",
+				Components = {
+					{
+						Component = "photon_whe_par46_left",
+						Position = Vector( -37, 40.5, 68 ),
+						Angles = Angle( 0, 0, 0 ),
+						Scale = 1,
+					},
+				},
+			},
+		}
+	},
+	{
 		Category = "ALPR",
 		Options = {
 			{
@@ -28,8 +44,8 @@ VEHICLE.Equipment = {
 			    Props = {
 					{
 						Model = "models/anmgenetacautovusharpx/ANMGenetacAutoVuSharpX.mdl",
-						Position = Vector( 29, -6.5, 95),
-						Angles = Angle( -1.5, 235, 0 ),
+						Position = Vector( 39, -94, 93.2),
+						Angles = Angle( 0, 240, 0 ),
 						Scale = 1,
 						SubMaterials = {
 							[0] = "rin/lrpd2/props/alpr"
@@ -41,8 +57,8 @@ VEHICLE.Equipment = {
 					},
 					{
 						Model = "models/anmgenetacautovusharpx/ANMGenetacAutoVuSharpX.mdl",
-						Position = Vector( -29, -6.5, 95),
-						Angles = Angle( -1.5, -55, 0 ),
+						Position = Vector( -39, -94, 93.2),
+						Angles = Angle( 0, -60, 0 ),
 						Scale = 1,
 						SubMaterials = {
 							[0] = "rin/lrpd2/props/alpr"
@@ -103,9 +119,225 @@ VEHICLE.Equipment = {
 				Components = {
 				    {
 						Component = "photon_whe_liberty_ii_suv_expressway",
-						Position = Vector( 0, -9, 90 ),
-						Angles = Angle( 1.5, 90, 0 ),
-						Scale = 1.06,
+						Position = Vector( 0, -24, 100 ),
+						Angles = Angle( 0, 90, 0 ),
+						Scale = 1.03,
+					},
+				}
+			},
+		}
+	},
+	{
+		Category = "Roof box thing",
+		Options = {
+			{
+				Option = "idk what to call this",
+				Components = {
+				    {
+						Component = "photon_expressway_roof_thingy",
+						Position = Vector( 0, -90, 91.5 ),
+						Angles = Angle( -0.5, 90, 0 ),
+						Scale = 1,
+						Bones = {
+							["bone_flu"] =	{ Vector( 0, 0, 0 ), Angle( 0, 0, 90 ), 1 },
+						},
+					},
+				}
+			},
+		}
+	},
+	{
+		Category = "Grille Lights",
+		Options = {
+			{
+				Option = "Whelen Ion",
+				Components = {
+					{
+						Name = "@grille_ion",
+						Component = "photon_whe_ion",
+						Position = Vector( 13.3, 116.5, 47.25 ),
+						Angles = Angle( -1, -8, 0 ),
+						Scale = 0.9,
+						States = { "B" },
+						Segments = {
+							LightEXP = {
+								Frames = {
+									[1] = "Light"
+								},
+								Sequences = {
+									["STAGE3"] = sequence():TripleFlash( 1, 0 ):SetTiming( 1/20 ),
+								}
+							},
+						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {
+									LightEXP = "STAGE3"
+								},
+								["MODE3"] = {
+									LightEXP = "STAGE3"
+								}
+							},
+						}
+					},
+					{
+						Inherit = "@grille_ion",
+						Position = Vector( 12.6, 116.5, 40.95 ),
+						Angles = Angle( -2, -8, 0 ),
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {
+									LightEXP = "STAGE3:180"
+								},
+								["MODE3"] = {
+									LightEXP = "STAGE3:180"
+								}
+							},
+						}
+					},
+					{
+						Inherit = "@grille_ion",
+						Position = Vector( -13.3, 116.5, 47.25 ),
+						Angles = Angle( 1, 8, 0 ),
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {
+									LightEXP = "STAGE3:180"
+								},
+								["MODE3"] = {
+									LightEXP = "STAGE3:180"
+								}
+							},
+						}
+					},
+					{
+						Inherit = "@grille_ion",
+						Position = Vector( -12.6, 116.5, 40.95 ),
+						Angles = Angle( 2, 8, 0 ),
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {
+									LightEXP = "STAGE3"
+								},
+								["MODE3"] = {
+									LightEXP = "STAGE3"
+								}
+							},
+						}
+					},
+                }
+			},
+		}
+	},
+	{
+		Category = "Side Lights",
+		Options = {
+			{
+				Option = "Whelen Ion",
+				Components = {
+					{
+						Name = "@side_ion",
+						Component = "photon_whe_ion_surface_bracket",
+						Position = Vector( 28.5, -80, 97.3 ),
+						Angles = Angle( 0.5, -90, 0 ),
+						Scale = 0.9,
+						States = { "B" },
+						Segments = {
+							LightSide = {
+								Frames = {
+									[1] = "Light"
+								},
+								Sequences = {
+									["STAGE3"] = sequence():TripleFlash( 1, 0 ):SetTiming( 1/20 ),
+								}
+							},
+						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {
+									LightSide = "STAGE3:180"
+								},
+								["MODE3"] = {
+									LightSide = "STAGE3:180"
+								}
+							},
+						}
+					},
+					{
+						Inherit = "@side_ion",
+						Position = Vector( -28.5, -80, 97.3 ),
+						Angles = Angle( -0.5, 90, 0 ),
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {
+									LightSide = "STAGE3"
+								},
+								["MODE3"] = {
+									LightSide = "STAGE3"
+								}
+							},
+						}
+					},
+				}
+			},
+		}
+	},
+	{
+		Category = "Rear Lights",
+		Options = {
+			{
+				Option = "Whelen Ion",
+				Components = {
+					{
+						Name = "@rear_ion",
+						Component = "photon_whe_ion_surface",
+						Position = Vector( 9, -123, 47 ),
+						Angles = Angle( 90, 180, 0 ),
+						Scale = 0.9,
+						States = { "B" },
+						Segments = {
+							LightRear = {
+								Frames = {
+									[1] = "Light"
+								},
+								Sequences = {
+									["STAGE3"] = sequence():TripleFlash( 1, 0 ):SetTiming( 1/20 ),
+								}
+							},
+						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {
+									LightRear = "STAGE3"
+								},
+								["MODE3"] = {
+									LightRear = "STAGE3"
+								}
+							},
+						}
+					},
+					{
+						Inherit = "@rear_ion",
+						Position = Vector( -9, -123, 47 ),
+						Angles = Angle( 90, 180, 0 ),
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {
+									LightRear = "STAGE3:180"
+								},
+								["MODE3"] = {
+									LightRear = "STAGE3:180"
+								}
+							},
+						}
 					},
 				}
 			},
@@ -127,6 +359,12 @@ VEHICLE.Equipment = {
 					{ BodyGroup = "keychain", Value = 0 },
 				},
 				Props = {
+					{
+						Model = "models/sentry/props/jp/antenna.mdl",
+						Position = Vector( 0, -5, 88.2 ),
+						Angles = Angle( 0, 0, -2 ),
+						Scale = 1,
+					},
 					{
 						Model = "models/sentry/props/jp/dashcam.mdl",
 						Position = Vector( 7, 28, 80.5 ),
@@ -181,7 +419,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 0, 270, 00 ),
 						Scale = 1.02,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 					{
@@ -190,7 +428,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 4, 90, 0 ),
 						Scale = 1.02,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 				}

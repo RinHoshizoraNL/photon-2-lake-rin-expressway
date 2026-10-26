@@ -6,6 +6,8 @@ VEHICLE.Vehicle		= "f550_utility_sm"
 VEHICLE.Category 	= "Photon 2: Lake Rin Expressway Corp."
 VEHICLE.Author		= "Rin Hoshizora"
 
+local sequence = Photon2.SequenceBuilder.New
+
 VEHICLE.Equipment = {
 	{
 		Category = "Livery",
@@ -29,97 +31,61 @@ VEHICLE.Equipment = {
 				Option = "Whelen Legacy",
 				Components = {
 				    {
-						Component = "photon_whe_legacy_54_expressway",
-						Position = Vector( 0, 29, 93.3 ),
+						Component = "photon_whe_liberty_ii_suv_expressway_works",
+						Position = Vector( 0, 28.5, 95 ),
 						Angles = Angle( 0, 90, 0 ),
-						Scale = 0.985,
-						BodyGroups = {
-							["Takedown"] = 1,
-							["Alley"] = 1,
-							["Clamps"] = 2,
-							["Gels"] = 1,
-						},
-						SubMaterials = {
-							[3] = "rin/expressway/props/legacy"
-						},
+						Scale = 1,
 					},
 				}
 			},
 		}
 	},
 	{
-		Category = "Front Lights",
+		Category = "Rear Lights",
 		Options = {
 			{
-				Option = "OSS LAF150",
+				Option = "Whelen Ion",
 				Components = {
 					{
-						Component = "oss_laf150_expressway",
-						Position = Vector( -20, 159.6, 38.5 ),
-						BodyGroups = {
-							["bracket"] = 0,
-							["mount"] = 1,
-						},
-						Angles = Angle( 0, 5, 0 ),
+						Name = "@rear_ion",
+						Component = "photon_whe_ion_surface_bracket",
+						Position = Vector( 42, -148.5, 100.7 ),
+						Angles = Angle( 0, 0, 180 ),
 						Scale = 0.9,
-						SubMaterials = {
-							[1] = "sentry/props/koitoflasher/glass_amber",
-							[2] = "sentry/props/koitoflasher/glass_amber"
+						States = { "A" },
+						Segments = {
+							LightEXP = {
+								Frames = {
+									[1] = "Light"
+								},
+								Sequences = {
+									["STAGE3"] = sequence():TripleFlash( 1, 0 ):SetTiming( 1/20 ),
+								}
+							},
 						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+								["MODE3"] = {
+									LightEXP = "STAGE3"
+								}
+							},
+						}
 					},
 					{
-						Component = "oss_laf150_expressway",
-						Position = Vector( 20, 159.6, 38.5  ),
-						BodyGroups = {
-							["bracket"] = 0,
-							["mount"] = 1,
-						},
-						Angles = Angle( 0, -5, 0 ),
-						Scale = 0.9,
-						Phase = 180,
-						SubMaterials = {
-							[1] = "sentry/props/koitoflasher/glass_amber",
-							[2] = "sentry/props/koitoflasher/glass_amber"
-						},
-					},
-				}
-			},
-		}
-	},
-    {
-		Category = "Brace Lights",
-		Options = {
-			{
-				Option = "OSS LAF150",
-				Components = {
-					{
-						Component = "oss_laf150_expressway",
-						Position = Vector( -42, -150.8, 99 ),
-						BodyGroups = {
-							["bracket"] = 0,
-							["mount"] = 0,
-						},
-						Angles = Angle( 180, 180, 0 ),
-						Scale = 0.9,
-						Phase = 180,
-						SubMaterials = {
-							[1] = "sentry/props/koitoflasher/glass_amber",
-							[2] = "sentry/props/koitoflasher/glass_amber"
-						},
-					},
-					{
-						Component = "oss_laf150_expressway",
-						Position = Vector( 42, -150.8, 99 ),
-						BodyGroups = {
-							["bracket"] = 0,
-							["mount"] = 0,
-						},
-						Angles = Angle( 180, 180, 0 ),
-						Scale = 0.9,
-						SubMaterials = {
-							[1] = "sentry/props/koitoflasher/glass_amber",
-							[2] = "sentry/props/koitoflasher/glass_amber"
-						},
+						Inherit = "@rear_ion",
+						Position = Vector( -42, -148.5, 100.7 ),
+						Angles = Angle( 0, 0, 180 ),
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+								["MODE3"] = {
+									LightEXP = "STAGE3:180"
+								}
+							},
+						}
 					},
 				}
 			},
@@ -167,7 +133,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 0, 270, 00 ),
 						Scale = 1,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 					{
@@ -182,7 +148,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 0, 90, 0 ),
 						Scale = 1,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 					{

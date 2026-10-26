@@ -62,7 +62,7 @@ VEHICLE.Equipment = {
 		Category = "Lightbar",
 		Options = {
 			{
-				Option = "Koito LED110 + Riser",
+				Option = "Patlite AXS12 + Riser",
 				Components = {
 					{
 						Name = "@riser",
@@ -75,25 +75,66 @@ VEHICLE.Equipment = {
 						},
 					},
 					{
-						Component = "patlite_axs12",
-						Position = Vector( 0, 0, 3 ),
+						Component = "photon_patlite_axs12_lr_expressway",
+						Position = Vector( 1, 0, 3.5 ),
 						Angles = Angle( 0, 0, 0 ),
-						Scale = 0.95,
+						Scale = 1.1,
 						Parent = "@riser",
 						FollowBone = 1,
-						States = {
-							[1] = "A",
-							[2] = "B",
-							[3] = "B",
-							[4] = "A",
-						},
-                        Options = {
-                            FeetWidthOffset = 0,
-                            FeetTilt = 0,
+						Options = {
+                            FeetWidthOffset = -2,
+                            FeetTilt = 1.5,
                         },
 						SubMaterials = {
 							[5] = "rin/expressway/props/yellow",
 							[12] = "rin/expressway/props/patlite_axs_yb"
+						},
+					},
+				}
+			}
+		}
+	},
+	{
+		Category = "Spotlight",
+		Options = {
+			{
+				Option = "Pillar Spotlight",
+				Components = {
+					{
+						Component = "photon_par46_left",
+						Position = Vector( -35.06, 26.46, 49.282 ),
+						Angles = Angle( 0, 0, 0 ),
+						Scale = 1,
+					},
+				},
+				BodyGroups = {
+					{ BodyGroup = "door_l_notch", Value = 0 },
+					{ BodyGroup = "door_r_notch", Value = 1 },
+				}
+			},
+		}
+	},
+	{
+		Category = "Siren",
+		Options = {
+			{
+				Option = "Whelen 295HFSA6",
+				Components = {
+					{
+						Name = "@siren_speaker",
+						Component = "siren_prototype",
+						Model = "models/sentry/props/jp/patlitespeaker.mdl",
+						Position = Vector( 0, 100, 29 ),
+						Angles = Angle( 0, -90, 0 ),
+						Scale = 0.9,
+						Siren = "whelen_295hfsa6",
+						Templates = {
+							["Sound"] = { 
+								Tone = {
+									DSP = 0,
+									Pitch = 100
+								}
+							}
 						},
 					},
 				}
@@ -162,8 +203,8 @@ VEHICLE.Equipment = {
 						},
 						Inputs = {
 							["Emergency.Warning"] = {
-								["MODE1"] = {Light = "SLOW"},
-								["MODE2"] = {Light = "SINGLE"},
+								["MODE1"] = {},
+								["MODE2"] = {Light = "QUAD"},
 								["MODE3"] = {Light = "QUAD"},
 							},
 						}
@@ -184,38 +225,48 @@ VEHICLE.Equipment = {
 			{
 				Components = {
 					{
-						Component = "photon_fedsig_xstream_single_lrpd",
-						Position = Vector( -21, -69, 55  ),
-						Angles = Angle( 0, 270, 180 ),
-						Scale = 1,
-						BodyGroups = {
-							["shroud"] = 1,
-							["mount"] = 1,
+						Name = "@rear_ion",
+						Component = "photon_whe_ion_surface_bracket",
+						Position = Vector( -20.5, -68.2, 54.8 ),
+						Angles = Angle( 0, 180, 0 ),
+						Scale = 0.9,
+						States = { "B" },
+						Segments = {
+							LightRear = {
+								Frames = {
+									[1] = "Light"
+								},
+								Sequences = {
+									["STAGE3"] = sequence():TripleFlash( 1, 0 ):SetTiming( 1/20 ),
+								}
+							},
 						},
 						Inputs = {
 							["Emergency.Warning"] = {
-								["MODE1"] = {Light = "SLOW"},
-								["MODE2"] = {Light = "SINGLE"},
-								["MODE3"] = {Light = "QUAD"},
+								["MODE1"] = {},
+								["MODE2"] = {
+									LightRear = "STAGE3:180"
+								},
+								["MODE3"] = {
+									LightRear = "STAGE3:180"
+								}
 							},
 						},
 						RenderGroup = RENDERGROUP_OPAQUE,
 					},
 					{
-						Component = "photon_fedsig_xstream_single_lrpd",
-						Position = Vector( 21, -69, 55  ),
-						Angles = Angle( 0, 270, 180 ),
-						Scale = 1,
-						Phase = 180,
-						BodyGroups = {
-							["shroud"] = 1,
-							["mount"] = 1,
-						},
+						Inherit = "@rear_ion",
+						Position = Vector( 20.5, -68.2, 54.8 ),
+						Angles = Angle( 0, 180, 0 ),
 						Inputs = {
 							["Emergency.Warning"] = {
-								["MODE1"] = {Light = "SLOW"},
-								["MODE2"] = {Light = "SINGLE"},
-								["MODE3"] = {Light = "QUAD"},
+								["MODE1"] = {},
+								["MODE2"] = {
+									LightRear = "STAGE3"
+								},
+								["MODE3"] = {
+									LightRear = "STAGE3"
+								}
 							},
 						},
 						RenderGroup = RENDERGROUP_OPAQUE,
@@ -339,7 +390,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( -11, 270, 00 ),
 						Scale = 1,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 					{
@@ -348,7 +399,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 6.5, 90, 0 ),
 						Scale = 0.97,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 				}

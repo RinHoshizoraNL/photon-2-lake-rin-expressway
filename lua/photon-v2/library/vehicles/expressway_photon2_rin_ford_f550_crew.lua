@@ -6,6 +6,8 @@ VEHICLE.Vehicle		= "f550_crew_sgm"
 VEHICLE.Category 	= "Photon 2: Lake Rin Expressway Corp."
 VEHICLE.Author		= "Rin Hoshizora"
 
+local sequence = Photon2.SequenceBuilder.New
+
 VEHICLE.Equipment = {
 	{
 		Category = "Livery",
@@ -26,58 +28,69 @@ VEHICLE.Equipment = {
 				Option = "Whelen Legacy",
 				Components = {
 				    {
-						Component = "photon_whe_legacy_54_expressway",
-						Position = Vector( 0, 42, 87.6 ),
+						Component = "photon_whe_liberty_ii_suv_expressway_works",
+						Position = Vector( 0, 42, 89 ),
 						Angles = Angle( 0, 90, 0 ),
-						Scale = 0.985,
-						BodyGroups = {
-							["Takedown"] = 1,
-							["Alley"] = 1,
-							["Clamps"] = 2,
-							["Gels"] = 1,
-						},
-						SubMaterials = {
-							[3] = "rin/expressway/props/legacy"
-						},
+						Scale = 1,
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE3"] = {
+									Corner = "L-R",
+			                        Inner = "L-R",
+								}
+							},
+						}
 					},
 				}
 			},
 		}
 	},
 	{
-		Category = "Front Lights",
+		Category = "Grille Lights",
 		Options = {
 			{
-				Option = "OSS LAF150",
+				Option = "Whelen Ion",
 				Components = {
 					{
-						Component = "oss_laf150_expressway",
-						Position = Vector( -49, 147, 36.65 ),
-						BodyGroups = {
-							["bracket"] = 0,
-							["mount"] = 0,
-						},
-						Angles = Angle( 0, 20, 0 ),
+						Name = "@grille_ion",
+						Component = "photon_whe_ion_surface_bracket",
+						Position = Vector( 31, 156.5, 31 ),
+						Angles = Angle( 0, 0, 0 ),
 						Scale = 0.9,
-						SubMaterials = {
-							[1] = "sentry/props/koitoflasher/glass_amber",
-							[2] = "sentry/props/koitoflasher/glass_amber"
+						States = { "A" },
+						Segments = {
+							LightEXP = {
+								Frames = {
+									[1] = "Light"
+								},
+								Sequences = {
+									["STAGE3"] = sequence():TripleFlash( 1, 0 ):SetTiming( 1/20 ),
+								}
+							},
 						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+								["MODE3"] = {
+									LightEXP = "STAGE3"
+								}
+							},
+						}
 					},
 					{
-						Component = "oss_laf150_expressway",
-						Position = Vector( 49, 147, 36.65  ),
-						BodyGroups = {
-							["bracket"] = 0,
-							["mount"] = 0,
-						},
-						Angles = Angle( 0, -20, 0 ),
-						Scale = 0.9,
-						Phase = 180,
-						SubMaterials = {
-							[1] = "sentry/props/koitoflasher/glass_amber",
-							[2] = "sentry/props/koitoflasher/glass_amber"
-						},
+						Inherit = "@grille_ion",
+						Position = Vector( -31, 156.5, 31 ),
+						Angles = Angle( 0, 0, 0 ),
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+								["MODE3"] = {
+									LightEXP = "STAGE3:180"
+								}
+							},
+						}
 					},
 				}
 			},
@@ -87,65 +100,63 @@ VEHICLE.Equipment = {
 		Category = "Rear Lights",
 		Options = {
 			{
-				Option = "OSS LAF150",
+				Option = "Whelen Ion",
 				Components = {
 					{
-						Component = "oss_laf150_expressway",
-						Position = Vector( -52, -132, 71.7 ),
-						BodyGroups = {
-							["bracket"] = 0,
-							["mount"] = 0,
-						},
+						Inherit = "@grille_ion",
+						Position = Vector( -51.5, -130.5, 70 ),
 						Angles = Angle( 0, 180, 0 ),
-						Scale = 0.9,
-						Phase = 180,
-						SubMaterials = {
-							[1] = "sentry/props/koitoflasher/glass_amber",
-							[2] = "sentry/props/koitoflasher/glass_amber"
-						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+								["MODE3"] = {
+									LightEXP = "STAGE3:180"
+								}
+							},
+						}
 					},
 					{
-						Component = "oss_laf150_expressway",
-						Position = Vector( 52, -132, 71.7 ),
-						BodyGroups = {
-							["bracket"] = 0,
-							["mount"] = 0,
-						},
+						Inherit = "@grille_ion",
+						Position = Vector( 51.5, -130.5, 70 ),
 						Angles = Angle( 0, 180, 0 ),
-						Scale = 0.9,
-						SubMaterials = {
-							[1] = "sentry/props/koitoflasher/glass_amber",
-							[2] = "sentry/props/koitoflasher/glass_amber"
-						},
-					},
-                    {
-						Component = "oss_laf150_expressway",
-						Position = Vector( -37, -132, 122.7 ),
-						BodyGroups = {
-							["bracket"] = 0,
-							["mount"] = 0,
-						},
-						Angles = Angle( 0, 180, 0 ),
-						Scale = 0.9,
-						SubMaterials = {
-							[1] = "sentry/props/koitoflasher/glass_amber",
-							[2] = "sentry/props/koitoflasher/glass_amber"
-						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+								["MODE3"] = {
+									LightEXP = "STAGE3"
+								}
+							},
+						}
 					},
 					{
-						Component = "oss_laf150_expressway",
-						Position = Vector( 37, -132, 122.7 ),
-						BodyGroups = {
-							["bracket"] = 0,
-							["mount"] = 0,
-						},
+						Inherit = "@grille_ion",
+						Position = Vector( -36, -130.5, 121 ),
 						Angles = Angle( 0, 180, 0 ),
-						Scale = 0.9,
-                        Phase = 180,
-						SubMaterials = {
-							[1] = "sentry/props/koitoflasher/glass_amber",
-							[2] = "sentry/props/koitoflasher/glass_amber"
-						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+								["MODE3"] = {
+									LightEXP = "STAGE3"
+								}
+							},
+						}
+					},
+					{
+						Inherit = "@grille_ion",
+						Position = Vector( 36, -130.5, 121 ),
+						Angles = Angle( 0, 180, 0 ),
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {},
+								["MODE3"] = {
+									LightEXP = "STAGE3:180"
+								}
+							},
+						}
 					},
 				}
 			},
@@ -193,7 +204,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 0, 270, 00 ),
 						Scale = 1,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 					{
@@ -202,7 +213,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 0, 90, 0 ),
 						Scale = 1,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 					{

@@ -44,7 +44,7 @@ VEHICLE.Equipment = {
 		Category = "Lightbar",
 		Options = {
 			{
-				Option = "Koito LED110 + Riser",
+				Option = "Patlite AXS12 + Riser",
 				Components = {
 					{
 						Name = "@riser",
@@ -57,21 +57,15 @@ VEHICLE.Equipment = {
 						},
 					},
 					{
-						Component = "patlite_axs12",
-						Position = Vector( 0, 0, 3 ),
+						Component = "photon_patlite_axs12_lr_expressway",
+						Position = Vector( 1, 0, 3.5 ),
 						Angles = Angle( 0, 0, 0 ),
-						Scale = 0.95,
+						Scale = 1.1,
 						Parent = "@riser",
 						FollowBone = 1,
-						States = {
-							[1] = "A",
-							[2] = "B",
-							[3] = "B",
-							[4] = "A",
-						},
-                        Options = {
-                            FeetWidthOffset = 0,
-                            FeetTilt = 0,
+						Options = {
+                            FeetWidthOffset = -2,
+                            FeetTilt = 1.5,
                         },
 						SubMaterials = {
 							[5] = "rin/expressway/props/yellow",
@@ -123,10 +117,10 @@ VEHICLE.Equipment = {
 		}
 	},
 	{
-		Category = "Grille",
+		Category = "Front Flashers",
 		Options = {
 			{
-				Option = "Grille",
+				Option = "Koito Flashers",
 				Components = {
 					{
 						Component = "koito_flasher_lrpd",
@@ -137,16 +131,30 @@ VEHICLE.Equipment = {
 							[3] = "schmal/photon/fedsig_legend/dome_r",
 							[0] = "sentry/props/koitoflasher/plastic_r",
 						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {Sprites = "Rapid"},
+								["MODE3"] = {Sprites = "Rapid"},
+							}
+						}
 					},
 					{
 						Component = "koito_flasher_lrpd",
 						Position = Vector( -11, 115.2, 27.5 ),
 						Angles = Angle( 0, 5, 0 ),
 						Scale = 0.9,
-						Phase = 45,
+						Phase = 90,
 						SubMaterials = {
 							[3] = "schmal/photon/fedsig_legend/dome_r"
 						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {Sprites = "Rapid"},
+								["MODE3"] = {Sprites = "Rapid"},
+							}
+						}
 					},
 				}
 			},
@@ -169,6 +177,13 @@ VEHICLE.Equipment = {
 						BodyGroups = {
 							["mount"] = 1,
 						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {Sprites = "Rapid"},
+								["MODE3"] = {Sprites = "Rapid"},
+							}
+						},
 						RenderGroup = RENDERGROUP_OPAQUE,
 					},
 					{
@@ -182,6 +197,13 @@ VEHICLE.Equipment = {
 						},
 						BodyGroups = {
 							["mount"] = 1,
+						},
+						Inputs = {
+							["Emergency.Warning"] = {
+								["MODE1"] = {},
+								["MODE2"] = {Sprites = "Rapid"},
+								["MODE3"] = {Sprites = "Rapid"},
+							}
 						},
 						RenderGroup = RENDERGROUP_OPAQUE,
 					},
@@ -207,6 +229,56 @@ VEHICLE.Equipment = {
 						Angles = Angle( 0, 0, 0 ),
 						Scale = Vector( 1, 1, 2),
 						RenderGroup = RENDERGROUP_OPAQUE,
+					},
+				}
+			}
+		}
+	},
+	{
+		Category = "Spotlight",
+		Options = {
+			{
+				Option = "Pillar Spotlight",
+				Components = {
+					{
+						Component = "photon_par46_left",
+						Position = Vector( -35.06, 26.46, 49.282 ),
+						Angles = Angle( 0, 0, 0 ),
+						Scale = 1,
+						SubMaterials = {
+							[5] = "sentry/shared/env_cubemap_model"
+						}
+					},
+				},
+				BodyGroups = {
+					{ BodyGroup = "door_l_notch", Value = 0 },
+					{ BodyGroup = "door_r_notch", Value = 1 },
+				}
+			},
+		}
+	},
+	{
+		Category = "Siren",
+		Options = {
+			{
+				Option = "Whelen 295HFSA6",
+				Components = {
+					{
+						Name = "@siren_speaker",
+						Component = "siren_prototype",
+						Model = "models/sentry/props/jp/patlitespeaker.mdl",
+						Position = Vector( 0, 100, 29 ),
+						Angles = Angle( 0, -90, 0 ),
+						Scale = 0.9,
+						Siren = "whelen_295hfsa6",
+						Templates = {
+							["Sound"] = { 
+								Tone = {
+									DSP = 0,
+									Pitch = 100
+								}
+							}
+						},
 					},
 				}
 			}
@@ -284,7 +356,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( -11, 270, 00 ),
 						Scale = 1,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 					{
@@ -293,7 +365,7 @@ VEHICLE.Equipment = {
 						Angles = Angle( 6.5, 90, 0 ),
 						Scale = 0.97,
 						SubMaterials = {
-							[1] = "rin/expressway/props/plate_state",
+							[1] = "rin/expressway/props/plate_excorp",
 						},
 					},
 				}
